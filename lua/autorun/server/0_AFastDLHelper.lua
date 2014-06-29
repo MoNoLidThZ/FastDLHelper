@@ -18,13 +18,13 @@ local Origin = overriden and Origin or {  }
 local overriden = true
 function resource.AddFile(file)
 	table.insert(ResouceTables.Files,file)
-	local info = debug.getinfo( 2 )
+	local info = debug.getinfo( 1 )
 	Origin[file] = string.format( "Line %d\t\"%s\"\t%s", info.currentline, info.name, info.short_src )
 	oldAddFile(file)
 end
 function resource.AddSingleFile(file)
 	table.insert(ResouceTables.SingleFiles,file)
-	local info = debug.getinfo( 2 )
+	local info = debug.getinfo( 1 )
 	Origin[file] = string.format( "Line %d\t\"%s\"\t%s", info.currentline, info.name, info.short_src )
 	oldAddSingleFile(file)
 end
